@@ -2,48 +2,132 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Декабристы: Герои нашего времени?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Декабристы: Наследие 1825</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; margin: 0; background: #f4f4f4; }
-        header { background: #2c3e50; color: white; padding: 60px 20px; text-align: center; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { margin: 0; font-size: 2.5em; }
-        h2 { color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; }
-        .stat-box { background: #ecf0f1; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        footer { text-align: center; padding: 20px; font-size: 0.9em; color: #777; }
-        .highlight { color: #e74c3c; font-weight: bold; }
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --bg: #f8f9fa;
+            --white: #ffffff;
+            --text: #333;
+        }
+
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--bg); }
+        
+        header { 
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1599394022918-6c276a570ffd?auto=format&fit=crop&q=80&w=1000') center/cover;
+            color: white; padding: 100px 20px; text-align: center; 
+        }
+
+        .container { max-width: 900px; margin: -50px auto 40px; background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
+        h1 { margin: 0; font-size: 3em; letter-spacing: 1px; }
+        h2 { color: var(--primary); border-left: 5px solid var(--accent); padding-left: 15px; margin-top: 40px; }
+
+        /* Карточки лидеров */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+        .card { border: 1px solid #eee; padding: 20px; border-radius: 10px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .card h3 { margin-top: 0; color: var(--accent); }
+
+        /* Таймлайн */
+        .timeline { border-left: 2px solid #ddd; padding: 10px 0 10px 20px; margin-left: 10px; }
+        .event { margin-bottom: 20px; position: relative; }
+        .event::before { content: ""; width: 12px; height: 12px; background: var(--accent); position: absolute; left: -27px; top: 6px; border-radius: 50%; }
+        .date { font-weight: bold; color: var(--primary); display: block; }
+
+        /* Статистика */
+        .stat-box { background: #fdf2f2; padding: 30px; border-radius: 12px; margin: 30px 0; border: 1px solid #fadbd8; }
+        .highlight { color: var(--accent); font-size: 1.5em; font-weight: bold; }
+
+        /* Таблица мифов */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: var(--primary); color: white; }
+
+        footer { text-align: center; padding: 40px; background: var(--primary); color: #bdc3c7; margin-top: 50px; }
+        
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 2em; } }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Декабристы — герои нашего времени?</h1>
-    <p>Индивидуальный итоговый проект ученика 9 класса</p>
+    <h1>ДЕКАБРИСТЫ — ГЕРОИ НАШЕГО ВРЕМЕНИ?</h1>
+    <p>История о том, как верность убеждениям оказалась сильнее страха смерти.</p>
 </header>
 
 <div class="container">
     <h2>О проекте</h2>
-    <p>Данный ресурс создан как цифровое дополнение к ИИП. Здесь представлены ключевые выводы исследования о первом в истории России открытом политическом выступлении против самодержавия.</p>
+    <p>Данный интерактивный ресурс является цифровой частью индивидуального итогового проекта. Было исследовано не только само восстание, но и та <span style="font-weight: 600;">духовная сила</span>, которая двигала молодыми офицерами в 1825 году.</p>
 
-    <h2>Идеология и цели</h2>
-    <p>Мы сравнили два пути развития России: <b>Конституцию Муравьева</b> (умеренный путь) и <b>Русскую Правду Пестеля</b> (радикальный путь). Оба документа опережали свое время на десятилетия.</p>
-
-    <h2>Результаты исследования</h2>
-    <div class="stat-box">
-        <p>В ходе работы был проведен опрос среди 50 учащихся 9-х классов:</p>
-        <ul>
-            <li><span class="highlight">68%</span> считают декабристов героями за их бескорыстие.</li>
-            <li><span class="highlight">20%</span> осуждают радикальные методы восстания.</li>
-            <li><span class="highlight">12%</span> не смогли дать однозначную оценку.</li>
-        </ul>
+    <h2>Лидеры и идеи</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Никита Муравьев</h3>
+            <p><b>«Конституция»</b>. Предлагал умеренный путь: конституционную монархию и постепенные реформы. Россия — федерация из 13 «держав».</p>
+        </div>
+        <div class="card">
+            <h3>Павел Пестель</h3>
+            <p><b>«Русская Правда»</b>. Радикальный проект: республика, полная отмена крепостного права и жесткое централизованное управление.</p>
+        </div>
     </div>
 
-    <h2>Главный вывод</h2>
-    <p>Декабристы — это не просто исторические персонажи, это пример <b>нравственного героизма</b>. Несмотря на поражение на Сенатской площади, они победили морально, задав вектор развития гражданского общества в России.</p>
+    <h2>Хроника восстания (14 декабря)</h2>
+    <div class="timeline">
+        <div class="event">
+            <span class="date">07:00 — Утро</span>
+            Офицеры-декабристы ведут агитацию в полках. Московский полк первым выходит на площадь.
+        </div>
+        <div class="event">
+            <span class="date">11:00 — Тупик</span>
+            Построение каре на Сенатской площади. Диктатор восстания С. Трубецкой не явился.
+        </div>
+        <div class="event">
+            <span class="date">15:00 — Трагедия</span>
+            Смертельное ранение генерал-губернатора Милорадовича. Мирные переговоры сорваны.
+        </div>
+        <div class="event">
+            <span class="date">17:00 — Развязка</span>
+            Николай I отдает приказ применить артиллерию. Восстание подавлено.
+        </div>
+    </div>
+
+    <h2>Мифы и Реальность</h2>
+    <table>
+        <tr>
+            <th>Миф</th>
+            <th>Реальность</th>
+        </tr>
+        <tr>
+            <td>Шли против царя из жажды власти</td>
+            <td>Рисковали жизнями и карьерой ради отмены крепостного права.</td>
+        </tr>
+        <tr>
+            <td>Весь народ был против них</td>
+            <td>Толпа на площади сочувствовала восставшим и бросала камни в войска Николая I.</td>
+        </tr>
+    </table>
+
+    <h2>Глас молодежи (Опрос 2026)</h2>
+    <div class="stat-box">
+        <p>Было опрошено 50 девятиклассников. Вот что они думают сегодня:</p>
+        <p><span class="highlight">68%</span> — «Это герои. Они доказали, что убеждения важнее комфорта».</p>
+        <p><span class="highlight">20%</span> — «Методы были опасными, это могло привести к хаосу».</p>
+        <p><span class="highlight">12%</span> — «Сложно судить события такой давности».</p>
+    </div>
+
+    <h2>Итог</h2>
+    <p style="font-size: 1.2em; font-style: italic; color: #555; text-align: center; border-top: 1px solid #eee; padding-top: 20px;">
+        «Декабристы всегда интересны для тех, кто хочет понять, как сочетать любовь к Родине и желание перемен».
+    </p>
 </div>
 
 <footer>
-    <p>© 2026 | Александр | Проект по истории</p>
+    <p>© 2026 | Александр | Итоговый индивидуальный проект | 9 класс</p>
+    <p style="font-size: 0.8em;">Сделано с помощью HTML/CSS | GitHub Pages</p>
 </footer>
 
 </body>
